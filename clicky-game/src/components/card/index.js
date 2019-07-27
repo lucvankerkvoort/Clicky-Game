@@ -32,9 +32,7 @@ export class Card extends React.Component {
       cursor: "pointer"
     };
     return (
-      <div className="card" style={cardStyle} onClick={this.handleClick}>
-        <div className="card-body" />
-      </div>
+      <div className="card" style={cardStyle} onClick={this.handleClick} />
     );
   }
 }
