@@ -7,7 +7,6 @@ export class Images extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(score) {
-    console.log(score);
     this.setState({
       score: score
     });
@@ -28,9 +27,11 @@ export class Images extends React.Component {
       "https://vignette.wikia.nocookie.net/simpsons/images/a/ae/Mayor_Adam_West.png/revision/latest?cb=20180109220259",
       "https://vignette.wikia.nocookie.net/familyguyfanon/images/1/15/Consuela.png/revision/latest?cb=20161215031734"
     ];
-    const cards = images.map((img, i) => (
-      <Card key={i} image={img} onClick={this.handleChange} />
-    ));
+    const cards = images
+      .sort(() => Math.random() - 0.5)
+      .map((img, i) => (
+        <Card key={i} image={img} onClick={this.handleChange} />
+      ));
     return (
       <div className="container">
         <div className="row" id="images">

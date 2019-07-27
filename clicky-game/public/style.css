@@ -1,0 +1,13 @@
+body {
+  /* background-image: linear-gradient(
+    to right,
+    #e4afcb 0%,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #e2c58b 30%,
+    #c2ce9c 64%,
+    #7edbdc 100%
+  ); */
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  /* background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%); */
+}
