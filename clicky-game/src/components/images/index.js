@@ -3,19 +3,18 @@ import { Card } from "../card";
 export class Images extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { score: 1 };
+    this.state = { score: 0 };
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(score) {
-    score = this.state.score;
+    console.log(score);
     this.setState({
-      score: this.state.score + 1
+      score: score
     });
     this.props.onChange(score);
   }
   render() {
-    console.log(this.state);
-    let images = [
+    const images = [
       "https://i2.wp.com/freepngimages.com/wp-content/uploads/2014/10/190px-Joe_Swanson.png?fit=190%2C288",
       "https://www.pngkey.com/png/full/0-3734_fg-blackjesus-family-guy-jesus-png.png",
       "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Peter_Griffin.png/220px-Peter_Griffin.png",

@@ -1,16 +1,26 @@
 import React from "react";
 
+let pictures = [];
+let numbers = 0;
+
 export class Card extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { points: 1 };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick() {
-    let points = this.state.points;
-    this.setState({ points: this.state.points + 1 });
-    this.props.onClick(points);
+    if (pictures.indexOf(this.props.image) === -1) {
+      numbers++;
+      pictures.push(this.props.image);
+      this.props.onClick(numbers);
+    } else {
+      pictures = [];
+      numbers = 0;
+      this.props.onClick(numbers);
+    }
   }
+
   render() {
     const cardStyle = {
       width: 180,
