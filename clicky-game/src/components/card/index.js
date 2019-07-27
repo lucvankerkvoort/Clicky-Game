@@ -1,12 +1,17 @@
 import React from "react";
 
 export class Card extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { points: 1 };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    let points = this.state.points;
+    this.setState({ points: this.state.points + 1 });
+    this.props.onClick(points);
+  }
   render() {
-    console.log(this.props);
-
-    const cardHover = {
-      transform: "scale(1.5)"
-    };
     const cardStyle = {
       width: 180,
       height: 140,
@@ -17,7 +22,7 @@ export class Card extends React.Component {
       cursor: "pointer"
     };
     return (
-      <div className="card" onMouseOver={cardHover} style={cardStyle}>
+      <div className="card" style={cardStyle} onClick={this.handleClick}>
         <div className="card-body" />
       </div>
     );

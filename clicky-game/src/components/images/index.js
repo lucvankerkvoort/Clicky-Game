@@ -3,9 +3,18 @@ import { Card } from "../card";
 export class Images extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { score: 0, highscore: 0 };
+    this.state = { score: 1 };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(score) {
+    score = this.state.score;
+    this.setState({
+      score: this.state.score + 1
+    });
+    this.props.onChange(score);
   }
   render() {
+    console.log(this.state);
     let images = [
       "https://i2.wp.com/freepngimages.com/wp-content/uploads/2014/10/190px-Joe_Swanson.png?fit=190%2C288",
       "https://www.pngkey.com/png/full/0-3734_fg-blackjesus-family-guy-jesus-png.png",
@@ -20,7 +29,9 @@ export class Images extends React.Component {
       "https://vignette.wikia.nocookie.net/simpsons/images/a/ae/Mayor_Adam_West.png/revision/latest?cb=20180109220259",
       "https://vignette.wikia.nocookie.net/familyguyfanon/images/1/15/Consuela.png/revision/latest?cb=20161215031734"
     ];
-    const cards = images.map(img => <Card image={img} />);
+    const cards = images.map((img, i) => (
+      <Card key={i} image={img} onClick={this.handleChange} />
+    ));
     return (
       <div className="container">
         <div className="row" id="images">
