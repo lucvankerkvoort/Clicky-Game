@@ -24,7 +24,7 @@ export class Navbar extends React.Component {
         <p>Clicky Game</p>
         {/* </Link> */}
         <p>{this.handleScore()}</p>
-        <p onChange={this.handleHighScore}>
+        <p>
           Current Score {this.props.score} || High Score {this.props.highScore}
         </p>
       </nav>
